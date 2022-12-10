@@ -16,6 +16,17 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
     yield takeEvery('SUBMIT_MOVIE', submitNewMovie);
+    yield takeEvery('SEARCH_TITLE', searchTitle);
+}
+
+function* searchTitle(action){
+    console.log('in searchTitle', action.payload);
+    try{
+        const likeTitles = yield axios.get('/api/movie/search/'+ action.payload);
+        yield put({type: 'SET_MOVIES', payload: likeTitles.data})
+    } catch (error){
+        console.log(error);
+    }
 }
 
 function* submitNewMovie(action){
@@ -33,7 +44,7 @@ function* fetchMovieDetails(action){
     //console.log('fetch details by id',action.payload);
     try{
         // axios get movie by id
-        const movieDetails = yield axios.get('/api/movie/'+action.payload);
+        const movieDetails = yield axios.get('/api/movie/details/'+action.payload);
         console.log('Movie Details: ', movieDetails)
         yield put({type: 'SET_MOVIE_DETAILS', payload: movieDetails});
     }
