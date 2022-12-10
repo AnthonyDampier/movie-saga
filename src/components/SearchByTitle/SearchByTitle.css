@@ -1,0 +1,18 @@
+.search-form input::placeholder{
+    text-align: center;
+    font-weight: 600;
+    color: orange
+}
+
+.search-form input {
+    width: 200px;
+    height: 20px;
+    margin: 20px;
+}
+
+.search-form {
+    position:fixed;
+    float: right;
+    top: 10px;
+    right: 10px;
+}

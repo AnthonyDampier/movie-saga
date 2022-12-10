@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import './MovieList.css'
+import SearchByTitle from '../SearchByTitle/SearchByTitle.jsx';
 
 function MovieList() {
 
@@ -23,6 +24,8 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
+            <SearchByTitle/>
+
             <section className="movies">
                 {movies.map(movie => {
                     return (

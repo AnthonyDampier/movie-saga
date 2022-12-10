@@ -2,8 +2,19 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+router.get('/search/:like', (req, res)=>{
+  console.log('fetching movie details by like title: ', req.params);
+  const query = `SELECT * FROM movies WHERE UPPER(title) LIKE UPPER($1);`
+  pool.query(query, ['%'+req.params.like+'%'])
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err =>{
+      console.log('ERROR: get movie details',err);
+    })
+})
 
-router.get('/:id', (req, res)=>{
+router.get('/details/:id', (req, res)=>{
   console.log('fetching mvie details by id: ', req.params.id);
   const query = `SELECT * FROM movies WHERE id = $1;`
   pool.query(query, [req.params.id])
