@@ -1,4 +1,25 @@
-.movies {
+.movies{
     display : flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movies div {
+    width: 225px;
+}
+
+.movies img{
+    height: 300px;
+    width: 200px;
+    margin: 10;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px black solid;
+}
+
+#addBTN {
+    font-size: larger;
+    width: 150px;
+    height: 40px;
+    margin: 50px;
 }
