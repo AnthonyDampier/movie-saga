@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 
 import '../SearchByTitle/SearchByTitle.css'
 

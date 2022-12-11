@@ -1,19 +1,31 @@
 import HomeBtn from "../HomeBtn/HomeBtn";
 
-import { useSelector, useStore } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { createBrowserHistory } from "history";
+import { useParams } from "react-router-dom";
 
+// interest way to wrtie a function in
+const Details = () => {
+    const dispatch = useDispatch();
+    const routeParams = useParams();
 
-function Details(){
-    const history = useHistory();
+    const details = useSelector(store => store.movieDetails)
 
-    const movieDetails = useSelector(store => store.MovieDetails);
+    const { detailId } = useParams();
+
+    useEffect(() => {
+        //dispatch({ type: 'FETCH_MOVIES' });
+        console.log(routeParams);
+        const id = routeParams.id;
+        dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
+    }, []);
 
     return(
         <>
             <HomeBtn/>
-            <h1>Are we in datails?</h1>
-            <p>{JSON.stringify(movieDetails)}</p>
+            <h1>Are we in details?</h1>
+            <p>{JSON.stringify(details)}</p>
         </>
     )
 }

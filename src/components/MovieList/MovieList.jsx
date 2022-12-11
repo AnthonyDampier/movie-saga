@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import './MovieList.css'
 import SearchByTitle from '../SearchByTitle/SearchByTitle.jsx';
 
-function MovieList() {
+function MovieList(props) {
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -18,7 +18,9 @@ function MovieList() {
 
     const handleMovieClick = (id) => {
         dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
-        history.push('/details')
+        history.push({
+            pathname: '/details/'+id,
+        });
     }
 
     return (
