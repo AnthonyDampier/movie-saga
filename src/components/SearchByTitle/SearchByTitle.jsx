@@ -6,7 +6,11 @@ function SearchByTitle(){
     const dispatch = useDispatch();
     
     const searchTitle = (event) => {
-        dispatch({type: 'SEARCH_TITLE', payload: event.target.value})
+        if (event.target.value === ''){
+            dispatch({ type: 'FETCH_MOVIES' });
+        }else{
+            dispatch({type: 'SEARCH_TITLE', payload: event.target.value})
+        }
     }
 
     return(

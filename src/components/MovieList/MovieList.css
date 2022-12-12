@@ -1,5 +1,11 @@
+#titleHeader {
+    display: flex;
+    margin-left: 5vw;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
 .movies{
-    margin-top: 80px;
     display : flex;
     flex-wrap: wrap;
     justify-content: center;

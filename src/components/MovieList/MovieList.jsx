@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import './MovieList.css'
 import SearchByTitle from '../SearchByTitle/SearchByTitle.jsx';
+import GenreSelector from '../GenreSelector/GenreSelector';
 
 function MovieList(props) {
 
@@ -28,7 +29,8 @@ function MovieList(props) {
     return (
         <main>
             <SearchByTitle/>
-            <h1>The Collection</h1>
+            <h1 id='titleHeader'>The Collection</h1>
+            <GenreSelector/>
             <section className="movies">
                 {movies.map(movie => {
                     return (

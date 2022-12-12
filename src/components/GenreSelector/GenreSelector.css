@@ -1,0 +1,19 @@
+
+.select-dropdown {
+    font-weight: 600;
+    color: #1D2625;
+    position: fixed;
+    float: right;
+    top: 40px;
+    right: 4vw;
+    width: 202px;
+    height: 23px;
+    margin: 20px;
+    background-color: aliceblue;
+    box-shadow: 0 0 10px #878787;
+    border-radius: 10px;
+    padding: 2px;
+    border: none;
+    cursor: pointer;
+    opacity: .8;
+}
