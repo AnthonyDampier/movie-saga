@@ -11,9 +11,11 @@ function MovieList(props) {
     const history = useHistory();
 
     const movies = useSelector(store => store.movies);
+    const genres = useSelector(store => store.movies);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
+        dispatch({type: 'FETCH_GENRES'})
     }, []);
 
     const handleMovieClick = (id) => {

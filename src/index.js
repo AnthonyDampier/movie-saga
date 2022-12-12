@@ -14,9 +14,21 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('FETCH_MOVIE_DETAILS', fetchmovieDetails);
+    yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
     yield takeEvery('SUBMIT_MOVIE', submitNewMovie);
     yield takeEvery('SEARCH_TITLE', searchTitle);
+    yield takeEvery('FETCH_GENRES', fetchGenres);
+}
+
+
+function* fetchGenres(action){
+    console.log('in fetch Genres: ', action.payload);
+    try{
+        const genres = yield axios.get('/api/genre');
+        yield put({type: 'SET_GENRES', payload: genres.data});
+    } catch (error){
+        console.log(error);
+    }
 }
 
 function* searchTitle(action){
@@ -39,7 +51,7 @@ function* submitNewMovie(action){
     }
 }
 
-function* fetchmovieDetails(action){
+function* fetchMovieDetails(action){
     //get movie detail that has $1 = id
     //console.log('fetch details by id',action.payload);
     try{
@@ -107,6 +119,7 @@ const storeInstance = createStore(
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
+
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
