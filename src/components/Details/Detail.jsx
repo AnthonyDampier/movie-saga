@@ -11,15 +11,16 @@ import './Details.css';
 const Details = () => {
     const dispatch = useDispatch();
     const routeParams = useParams();
+    let id;
 
-    const details = useSelector(store => store.movieDetails)
+    const details = useSelector(store => store.movieDetails);
+    const genres = useSelector(store => store.genres);
 
     const { detailId } = useParams();
 
     useEffect(() => {
         //dispatch({ type: 'FETCH_MOVIES' });
-        console.log(routeParams);
-        const id = routeParams.id;
+        id = routeParams.id;
         dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
     }, []);
 

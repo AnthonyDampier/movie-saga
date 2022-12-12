@@ -1,6 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool')
+const pool = require('../modules/pool');
+
+// gets movies by related genre
+router.get('/ByGenre/:genre', (req,res) => {
+  const query =`SELECT * from movies
+                Join movies_genres on movies.id = movies_genres.movie_id
+                Join genres on movies_genres.genre_id = genres.id
+                Where genres.id = $1; `
+  pool.query(query, [req.params.genre])
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch (error => {
+      console.log('ERROR: get by genre', error);
+      res.sendStatus(500);
+    })
+})
+
 
 router.get('/search/:like', (req, res)=>{
   console.log('fetching movie details by like title: ', req.params);
@@ -11,6 +28,7 @@ router.get('/search/:like', (req, res)=>{
     })
     .catch(err =>{
       console.log('ERROR: get movie details',err);
+      res.sendStatus(500);
     })
 })
 
@@ -23,6 +41,7 @@ router.get('/details/:id', (req, res)=>{
     })
     .catch(err =>{
       console.log('ERROR: get movie details',err);
+      res.sendStatus(500);
     })
 })
 

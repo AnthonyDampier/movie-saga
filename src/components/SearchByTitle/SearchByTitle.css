@@ -2,7 +2,6 @@
     text-align: center;
     font-weight: 600;
     color: #1D2625;
-
 }
 
 .search-form input {
@@ -12,8 +11,6 @@
     margin: 20px;
     box-shadow: 0 0 10px #878787;
     border-radius: 10px;
-    display: grid;
-    place-items: center;
     border: none;
 }
 
@@ -21,7 +18,8 @@
     position:fixed;
     float: right;
     top: 10px;
-    right: 10px;
+    right: 4vw;
     background-color: transparent;
     cursor: text;
+    opacity: .8;
 }

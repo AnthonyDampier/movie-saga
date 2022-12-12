@@ -18,11 +18,22 @@ function* rootSaga() {
     yield takeEvery('SUBMIT_MOVIE', submitNewMovie);
     yield takeEvery('SEARCH_TITLE', searchTitle);
     yield takeEvery('FETCH_GENRES', fetchGenres);
+    yield takeEvery('FETCH_BY_GENRE', fetchByGenre);
 }
 
+// fetch movie by their related genre
+function* fetchByGenre(action){
+    try{
+        const moviesByGenre = yield axios.get('/api/movie/ByGenre/'+action.payload);
+        yield put({type: 'SET_MOVIES', payload: moviesByGenre.data});
+    } catch (error){
+        console.log(error);
+    }
+}
 
+// fetch relational DB from genres and movies
 function* fetchGenres(action){
-    console.log('in fetch Genres: ', action.payload);
+    // console.log('in fetch Genres: ', action.payload);
     try{
         const genres = yield axios.get('/api/genre');
         yield put({type: 'SET_GENRES', payload: genres.data});
@@ -31,6 +42,7 @@ function* fetchGenres(action){
     }
 }
 
+// search for title based on search inputs
 function* searchTitle(action){
     console.log('in searchTitle', action.payload);
     try{
@@ -41,6 +53,7 @@ function* searchTitle(action){
     }
 }
 
+// posts a user created movie to DB and refetch & refresh movies 
 function* submitNewMovie(action){
     console.log(action.payload);
     try{
@@ -100,6 +113,7 @@ const genres = (state = [], action) => {
     }
 }
 
+// used to store the movie details of one movie
 const movieDetails = (state = {}, action) => {
     switch (action.type){
         case 'SET_MOVIE_DETAILS':
