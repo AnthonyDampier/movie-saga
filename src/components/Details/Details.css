@@ -1,0 +1,37 @@
+.details {
+    /* background-color: gray; */
+}
+
+.details img {
+    height: 500px;
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .25rem;
+    box-shadow: 0 0 15px #878787;
+    cursor: pointer;
+}
+
+.details div button {
+    font-size: larger;
+    text-shadow: 0 10px 30px #f0eeee;
+    margin-top: 5px;
+    width: 350px;
+    height: 30px;
+    background-color: aliceblue;
+    box-shadow: 0 0 10px #878787;
+    border-radius: 0rem 0rem .25rem .25rem ;
+    border: none;
+    cursor: pointer;
+}
+
+.details div p {
+    font-size: large;
+    display: flex;
+    margin: auto;
+    width: 70vw;
+}
+
+

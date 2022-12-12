@@ -1,0 +1,74 @@
+h1, h2 {
+    color: #1b2b2d;
+}
+
+form {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    border-radius: .25rem;
+    box-shadow: 0 0 15px #878787;
+    background-color: #3A5154;
+    padding: 20px;
+    padding-bottom: 40px;
+    color: aliceblue;
+}
+
+form div {
+    margin: 20px;
+    background-color: #3A5154;
+}
+
+form label {
+    display: flex;
+    background-color: #3A5154;
+    vertical-align: top;
+    font-size: larger;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+input {
+    background-color: aliceblue;
+    border-radius: .25rem;
+    height: 20px;
+    border: none;
+    width: 350px;
+}
+
+form div textarea {
+    background-color: #f0f8ff;
+    border-radius: .25rem;
+    border: none;
+    height: 100px;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+#genres-select select {
+    margin-left: 5px;
+    vertical-align: top;
+    background-color: aliceblue;
+    border-radius: .25rem;
+    height: 20px;
+    width: 145px;
+    border: none;
+}
+
+#submit-btn {
+    background-color: aliceblue;
+    border-radius: .25rem;
+    height: 20px;
+    border: none;
+    width: 350px;
+}
+
+#cancel-btn {
+    background-color: #B7673C;
+    border-radius: .25rem;
+    height: 20px;
+    border: none;
+    width: 350px;
+}
+
+

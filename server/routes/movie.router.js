@@ -44,12 +44,12 @@ router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
   const insertMovieQuery = `
-  INSERT INTO "movies" ("title", "poster", "description")
-  VALUES ($1, $2, $3)
+  INSERT INTO "movies" ("title", "poster", "description", "trailerURL")
+  VALUES ($1, $2, $3, $4)
   RETURNING "id";`
 
   // FIRST QUERY MAKES MOVIE
-  pool.query(insertMovieQuery, [req.body.title, req.body.poster, req.body.description])
+  pool.query(insertMovieQuery, [req.body.title, req.body.poster, req.body.description, req.body.trailerURL])
   .then(result => {
     console.log('New Movie Id:', result.rows[0].id); //ID IS HERE!
     

@@ -25,9 +25,8 @@ function MovieList(props) {
 
     return (
         <main>
-            <h1>MovieList</h1>
             <SearchByTitle/>
-
+            <h1>The Collection</h1>
             <section className="movies">
                 {movies.map(movie => {
                     return (

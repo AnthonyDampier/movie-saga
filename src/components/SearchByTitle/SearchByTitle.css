@@ -1,13 +1,20 @@
 .search-form input::placeholder{
     text-align: center;
     font-weight: 600;
-    color: orange
+    color: #1D2625;
+
 }
 
 .search-form input {
+    background-color: aliceblue;
     width: 200px;
     height: 20px;
     margin: 20px;
+    box-shadow: 0 0 10px #878787;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    border: none;
 }
 
 .search-form {
@@ -15,4 +22,6 @@
     float: right;
     top: 10px;
     right: 10px;
+    background-color: transparent;
+    cursor: text;
 }

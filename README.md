@@ -19,6 +19,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 1. `npm install`
 2. `npm run server`
 3. `npm run client`
+4. `npm install sweetalert --save`
 
 
 # What I want to do further:

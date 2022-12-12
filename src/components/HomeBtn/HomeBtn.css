@@ -1,0 +1,10 @@
+#home-btn {
+    position:fixed;
+    top: 5px;
+    left: 25px;
+    font-size: larger;
+    border: none;
+    cursor: pointer;
+    text-shadow: 0 10px 30px #f0eeee;
+}
+

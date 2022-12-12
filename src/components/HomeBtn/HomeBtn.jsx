@@ -1,10 +1,14 @@
 import { useHistory } from 'react-router-dom';
+import './HomeBtn.css';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 function HomeBtn(){
     const history = useHistory();
     return(
         <>
-            <button onClick={() => history.push('/')}>BACK</button>
+            <button id='home-btn' onClick={() => history.push('/')}>
+                <h3><ArrowBackIosIcon/></h3>
+            </button>
         </>
     )
 }
