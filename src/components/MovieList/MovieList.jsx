@@ -20,7 +20,7 @@ function MovieList(props) {
     }, []);
 
     const handleMovieClick = (id) => {
-        dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
+        // dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
         history.push({
             pathname: '/details/'+id,
         });
