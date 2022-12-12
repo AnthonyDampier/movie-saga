@@ -45,7 +45,7 @@ function* fetchmovieDetails(action){
     try{
         // axios get movie by id
         const movieDetails = yield axios.get('/api/movie/details/'+action.payload);
-        console.log('Movie Details: ', movieDetails)
+        // console.log('Movie Details: ', movieDetails)
         yield put({type: 'SET_MOVIE_DETAILS', payload: movieDetails});
     }
     catch (error){
@@ -57,7 +57,7 @@ function* fetchAllMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
-        console.log('get all:', movies.data);
+        // console.log('get all:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
     } catch {
         console.log('get all error');

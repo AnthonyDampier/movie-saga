@@ -25,7 +25,7 @@ function MovieForm(){
 
     const submitForm = (event) => {
         event.preventDefault();
-        console.log('sumited for', event.target.value);
+        // console.log('sumited for', event.target.value);
         if (fullInput === true && genre !== '' && event.target.value == 'submit'){
             dispatch({type: 'SUBMIT_MOVIE', payload: {title: title, poster: imageUrl, description: description, genre_id: genre, trailerURL: trailerURL}})
             history.push('/');
@@ -41,23 +41,24 @@ function MovieForm(){
         }
     }
 
+    // set inputs
     const titleInput = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setTitle(event.target.value);
     }
 
     const urlInput = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setImageURL(event.target.value);
     }
 
     const descriptionInput = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setDescription(event.target.value);
     }
 
     const genreInput = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setGenre(event.target.value);
     }
 
@@ -65,6 +66,7 @@ function MovieForm(){
         setTrailerURL(event.target.value);
     }
 
+    // checks to insure all inputs are complete
     const checkInputs = () => {
         if (title !== '' && description !== '' && imageUrl !== '' && trailerURL !== ''){
             setFullInput(true);
