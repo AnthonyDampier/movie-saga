@@ -34,7 +34,12 @@ router.get('/search/:like', (req, res)=>{
 
 router.get('/details/:id', (req, res)=>{
   console.log('fetching mvie details by id: ', req.params.id);
-  const query = `SELECT * FROM movies WHERE id = $1;`
+  const query = `SELECT "movies"."id", "movies"."title", "movies"."poster","movies"."description", json_agg("genres"."name") AS "genre_array"
+  From "genres"
+  Join "movies_genres" ON "movies_genres"."genre_id" = "genres"."id"
+  Join "movies" ON "movies"."id" = "movies_genres"."movie_id"
+  WHERE "movies"."id" = $1
+  Group by "movies"."title","movies"."poster","movies"."id", "movies"."description";`
   pool.query(query, [req.params.id])
     .then( result => {
       res.send(result.rows);
@@ -47,7 +52,12 @@ router.get('/details/:id', (req, res)=>{
 
 router.get('/', (req, res) => {
 
-  const query = `SELECT * FROM movies ORDER BY "title" ASC`;
+  const query = `SELECT "movies"."id", "movies"."title", "movies"."poster","movies"."description", json_agg("genres"."name") AS "genre_array"
+                  From "genres"
+                  Join "movies_genres" ON "movies_genres"."genre_id" = "genres"."id"
+                  Join "movies" ON "movies"."id" = "movies_genres"."movie_id"
+                  Group by "movies"."title","movies"."poster","movies"."id", "movies"."description"
+                  Order by 1;`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);

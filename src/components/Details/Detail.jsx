@@ -14,9 +14,10 @@ const Details = () => {
     let id;
 
     const details = useSelector(store => store.movieDetails);
-    const genres = useSelector(store => store.genres);
+    const genres_array = details.genre_array
+    // const genres = useSelector(store => store.genres);
 
-    const { detailId } = useParams();
+    // const { detailId } = useParams();
 
     useEffect(() => {
         //dispatch({ type: 'FETCH_MOVIES' });
@@ -38,6 +39,15 @@ const Details = () => {
                     <h4>Details:</h4>
                     <p>{details.description}</p>
                 </div>
+                <p>{JSON.stringify(details.genre_array)}</p>
+                {/* {movies.map(movie => {
+                    return (
+                        <div key={movie.id}>
+                            <img src={movie.poster} alt={movie.title} onClick={() => handleMovieClick(movie.id)}/>
+                            <h3>{movie.title}</h3>
+                        </div>
+                    );
+                })} */}
             </div>
         </>
     )
