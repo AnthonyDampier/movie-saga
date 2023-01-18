@@ -7,7 +7,7 @@ function HomeBtn(){
     return(
         <>
             <button id='home-btn' onClick={() => history.push('/')}>
-                <h3><ArrowBackIosIcon/></h3>
+                ↩
             </button>
         </>
     )

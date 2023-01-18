@@ -5,21 +5,20 @@
 }
 
 .search-form input {
-    background-color: aliceblue;
-    width: 200px;
-    height: 20px;
-    margin: 20px;
-    box-shadow: 0 0 10px #878787;
-    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    width: 196px;
+    height: 23px;
+    background-color: white;
+    box-shadow: 0 0 8px #ffffff;
+    border-radius: 4px;
+    padding: 2px;
     border: none;
+    cursor: pointer;
 }
 
 .search-form {
-    position:fixed;
-    float: right;
-    top: 10px;
-    right: 4vw;
-    background-color: transparent;
     cursor: text;
-    opacity: .8;
+    margin-bottom: 5px;
 }

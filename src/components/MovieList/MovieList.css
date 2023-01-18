@@ -1,8 +1,8 @@
-#titleHeader {
-    display: flex;
-    margin-left: 5vw;
-    margin-bottom: 40px;
-    margin-top: 40px;
+h1#titleHeader {
+    color: rgb(250, 249, 248);
+    font-size: 40px;
+    text-shadow: white;
+    text-shadow: white;
 }
 
 .movies{
@@ -23,22 +23,32 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: .25rem;
-    box-shadow: 0 0 15px #878787;
+    box-shadow: 0 0 15px #ffffff;
     cursor: pointer;
 }
 
 #addBTN {
-    font-size: larger;
-    width: 150px;
-    height: 40px;
-    margin: 50px;
-    background-color: aliceblue;
-    box-shadow: 0 0 10px #878787;
-    border-radius: 10px;
-    place-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    width: 200px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 8px #ffffff;
+    border-radius: 5px;
     border: none;
-    position: fixed;
-    bottom: -10px;
-    right: 5px;
     cursor: pointer;
+    margin-bottom: 5px;
 }
+
+#search-methods{
+    display: flex;
+    justify-content:space-around;
+    
+}
+
+@media screen and (max-width: 420px) {
+    #search-methods {
+        display:block;
+        gap: 100px;
+    }
+ }

@@ -2,35 +2,40 @@ import HomeBtn from "../HomeBtn/HomeBtn";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { createBrowserHistory } from "history";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import './Details.css';
 
 // interest way to wrtie a function in
 const Details = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const routeParams = useParams();
-    let id;
+    const [id, setId] = useState(-1);
 
-    const details = useSelector(store => store.movieDetails);
-    const genres_array = details.genre_array
-    // const genres = useSelector(store => store.genres);
+    const movies = useSelector(store => store.movies);
 
-    // const { detailId } = useParams();
+    const  details =  useSelector(store => store.movieDetails);
+
+    const handleMovieClick = (newId) => {
+        // dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
+        dispatch({type: 'FETCH_MOVIE_DETAILS', payload: newId})
+    }
 
     useEffect(() => {
         //dispatch({ type: 'FETCH_MOVIES' });
-        id = routeParams.id;
+        setId(routeParams.id);
         dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
-    }, []);
+    }, [id]);
 
     return(
         <>  
             <HomeBtn />
             {/* <p>{JSON.stringify(details)}</p> */}
+            {details.id && 
             <div key={details.id} className='details'>
-                <h2>{details.title}</h2>
+            <center>
+                <h2 id="title" >{details.title}</h2>
                 <a href={details.trailerURL}  target='_blank'>
                     <img src={details.poster} alt={details.title} href={details.trailerURL}/>
                 </a>
@@ -39,18 +44,43 @@ const Details = () => {
                     <h4>Details:</h4>
                     <p>{details.description}</p>
                 </div>
-                <p>{JSON.stringify(details.genre_array)}</p>
-                {/* {movies.map(movie => {
+                {details.genre_array ? 
+                    <ul>
+                        {details.genre_array.map(
+                            (genre, index) =>{
+                                return(
+                                    <li key={index}>{genre}</li>
+                                )
+                            }
+                        )}
+                    </ul>
+                    :
+                    <ul>
+                        <li>No Genre</li>
+                    </ul>
+                }
+                </center>
+                <section className="movies">
+                {movies.map(movie => {
                     return (
                         <div key={movie.id}>
-                            <img src={movie.poster} alt={movie.title} onClick={() => handleMovieClick(movie.id)}/>
+                            <img 
+                                id="movie-list"
+                                src={movie.poster} 
+                                alt={movie.title} 
+                                onClick={() => handleMovieClick(movie.id)}
+                                />
                             <h3>{movie.title}</h3>
                         </div>
                     );
-                })} */}
+                })}
+                </section>
             </div>
+            }
         </>
     )
 }
+
+
 
 export default Details;
