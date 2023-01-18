@@ -12,6 +12,8 @@ form {
     padding: 20px;
     padding-bottom: 40px;
     color: aliceblue;
+    width: 80vw;
+    max-width: 800px;
 }
 
 form div {
@@ -33,7 +35,8 @@ input {
     border-radius: .25rem;
     height: 20px;
     border: none;
-    width: 350px;
+    width: 75vw;
+    max-width: 750px;
 }
 
 form div textarea {
@@ -41,7 +44,8 @@ form div textarea {
     border-radius: .25rem;
     border: none;
     height: 100px;
-    width: 350px;
+    width: 75vw;
+    max-width: 750px;
     margin-bottom: 10px;
 }
 
@@ -51,7 +55,8 @@ form div textarea {
     background-color: aliceblue;
     border-radius: .25rem;
     height: 20px;
-    width: 145px;
+    max-width: 750px;
+    width: 75vw;
     border: none;
 }
 
@@ -60,15 +65,17 @@ form div textarea {
     border-radius: .25rem;
     height: 20px;
     border: none;
-    width: 350px;
+    max-width: 750px;
+    width: 75vw;
 }
 
 #cancel-btn {
-    background-color: #B7673C;
+    background-color: #ff740a;
     border-radius: .25rem;
     height: 20px;
     border: none;
-    width: 350px;
+    max-width: 750px;
+    width: 75vw;
 }
 
 

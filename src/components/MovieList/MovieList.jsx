@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import './MovieList.css'
 import SearchByTitle from '../SearchByTitle/SearchByTitle.jsx';
@@ -19,8 +20,8 @@ function MovieList(props) {
         dispatch({type: 'FETCH_GENRES'})
     }, []);
 
+
     const handleMovieClick = (id) => {
-        // dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
         history.push({
             pathname: '/details/'+id,
         });
@@ -28,22 +29,25 @@ function MovieList(props) {
 
     return (
         <main>
-            <SearchByTitle/>
-            <h1 id='titleHeader'>The Collection</h1>
-            <GenreSelector/>
-            <section className="movies">
-                {movies.map(movie => {
-                    return (
-                        <div key={movie.id}>
-                            <img src={movie.poster} alt={movie.title} onClick={() => handleMovieClick(movie.id)}/>
-                            <h3>{movie.title}</h3>
-                        </div>
-                    );
-                })}
-            </section>
-            <button id="addBTN"onClick={() => history.push('/addAMovie')}>Add A Movie</button>
+            <center>
+                <h1 id='titleHeader'>The Collection</h1>
+                <div id="search-methods">
+                    <GenreSelector/>
+                    <SearchByTitle/>
+                    <button id="addBTN" onClick={() => history.push('/addAMovie')}>Add A Movie</button>
+                </div>
+                <section className="movies">
+                    {movies.map(movie => {
+                        return (
+                            <div key={movie.id}>
+                                <img src={movie.poster} alt={movie.title} onClick={() => handleMovieClick(movie.id)}/>
+                                <h3>{movie.title}</h3>
+                            </div>
+                        );
+                    })}
+                </section>
+            </center>
         </main>
-
     );
 }
 

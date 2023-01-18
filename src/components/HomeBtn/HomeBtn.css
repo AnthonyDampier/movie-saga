@@ -1,10 +1,11 @@
 #home-btn {
     position:fixed;
-    top: 5px;
-    left: 25px;
-    font-size: larger;
+    top: 30px;
+    left: 30px;
+    font-size: 40px;
     border: none;
     cursor: pointer;
     text-shadow: 0 10px 30px #f0eeee;
+    color: white;
 }
 
