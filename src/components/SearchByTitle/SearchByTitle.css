@@ -15,10 +15,10 @@
     border-radius: 4px;
     padding: 2px;
     border: none;
-    cursor: pointer;
-}
-
-.search-form {
     cursor: text;
     margin-bottom: 5px;
+}
+
+.search-form::placeholder {
+    color:#000000;
 }

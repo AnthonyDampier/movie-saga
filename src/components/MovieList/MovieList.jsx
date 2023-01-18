@@ -33,8 +33,8 @@ function MovieList(props) {
                 <h1 id='titleHeader'>The Collection</h1>
                 <div id="search-methods">
                     <GenreSelector/>
-                    <button id="addBTN" onClick={() => history.push('/addAMovie')}>Add A Movie</button>
                     <SearchByTitle/>
+                    <button id="addBTN" onClick={() => history.push('/addAMovie')}>Add A Movie</button>
                 </div>
                 <section className="movies">
                     {movies.map(movie => {

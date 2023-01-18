@@ -4,13 +4,11 @@
     font-weight: 600;
     color: #000000;
     width: 200px;
-    height: 20px;
+    height: 28px;
     background-color: white;
     box-shadow: 0 0 10px #ffffff;
     border-radius: 4px;
-    padding: 2px;
     border: none;
     cursor: pointer;
-    height: 25px;
     margin-bottom: 5px;
 }
