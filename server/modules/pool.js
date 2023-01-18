@@ -23,6 +23,7 @@ if (process.env.DATABASE_URL) {
         }
     });
 }
+console.log('What is my database URL?', process.env.DATABASE_URL);
 // When we're running this app on our own computer
 // we'll connect to the postgres database that is 
 // also running on our computer (localhost)
